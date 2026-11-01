@@ -54,9 +54,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Cambodia Everywhere | Heritage Textiles" },
+      { title: "KramiVelle | Heritage Textiles" },
       { name: "description", content: "Crafted in Cambodia. Curated for the World. Pilot collection of Cambodian heritage textiles for European buyers." },
-      { property: "og:site_name", content: "Cambodia Everywhere" },
+      { property: "og:site_name", content: "KramiVelle" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

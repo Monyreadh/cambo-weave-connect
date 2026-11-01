@@ -10,9 +10,9 @@ export const Route = createFileRoute("/preorder")({
   validateSearch: z.object({ product: z.string().optional(), sample: z.boolean().optional() }),
   head: () => ({
     meta: [
-      { title: "Pre-order enquiry — Cambodia Everywhere" },
+      { title: "Pre-order enquiry — KramiVelle" },
       { name: "description", content: "Submit a non-binding pre-order or quotation request for Cambodian heritage textiles." },
-      { property: "og:title", content: "Pre-order enquiry — Cambodia Everywhere" },
+      { property: "og:title", content: "Pre-order enquiry — KramiVelle" },
       { property: "og:description", content: "Non-binding enquiry. No payment taken." },
     ],
   }),

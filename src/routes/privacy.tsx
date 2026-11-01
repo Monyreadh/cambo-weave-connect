@@ -3,7 +3,7 @@ import { TextPage, EditFlag, meta } from "@/components/site/TextPage";
 import { PLACEHOLDER_EMAIL } from "@/lib/catalog";
 
 export const Route = createFileRoute("/privacy")({
-  head: () => meta("Privacy notice — Cambodia Everywhere", "How we handle the personal data you share in pre-order enquiries."),
+  head: () => meta("Privacy notice — KramiVelle", "How we handle the personal data you share in pre-order enquiries."),
   component: () => (
     <TextPage eyebrow="Legal · draft" title="Privacy notice">
       <p className="text-xs">Draft placeholder — to be reviewed by a qualified advisor before launch.</p>

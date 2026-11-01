@@ -9,7 +9,7 @@ import type { Tables } from "@/integrations/supabase/types";
 
 export const Route = createFileRoute("/admin")({
   ssr: false,
-  head: () => ({ meta: [{ title: "Admin — Cambodia Everywhere" }, { name: "robots", content: "noindex" }] }),
+  head: () => ({ meta: [{ title: "Admin — KramiVelle" }, { name: "robots", content: "noindex" }] }),
   component: AdminPage,
 });
 

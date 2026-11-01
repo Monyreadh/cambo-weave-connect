@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { TextPage, EditFlag, meta } from "@/components/site/TextPage";
 
 export const Route = createFileRoute("/terms")({
-  head: () => meta("Terms — Cambodia Everywhere", "Terms for enquiries and quotations on the Cambodia Everywhere pilot collection."),
+  head: () => meta("Terms — KramiVelle", "Terms for enquiries and quotations on the KramiVelle pilot collection."),
   component: () => (
     <TextPage eyebrow="Legal · draft" title="Terms of enquiry">
       <p className="text-xs">Draft placeholder — to be reviewed by a qualified advisor before launch.</p>
