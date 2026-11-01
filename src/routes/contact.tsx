@@ -3,7 +3,7 @@ import { TextPage, EditFlag, meta } from "@/components/site/TextPage";
 import { PLACEHOLDER_EMAIL } from "@/lib/catalog";
 
 export const Route = createFileRoute("/contact")({
-  head: () => meta("Contact — Cambodia Everywhere", "Get in touch about the pilot collection, wholesale quotations or partnerships."),
+  head: () => meta("Contact — KramiVelle", "Get in touch about the pilot collection, wholesale quotations or partnerships."),
   component: () => (
     <TextPage eyebrow="Contact" title="Get in touch">
       <p>For quotations and pre-orders, the fastest route is the <Link to="/preorder" className="underline">pre-order enquiry form</Link> — it gives you a reference number.</p>

@@ -15,12 +15,12 @@ export const Route = createFileRoute("/collection/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.name} — Cambodia Everywhere` },
+          { title: `${loaderData.name} — KramiVelle` },
           { name: "description", content: loaderData.short_description },
-          { property: "og:title", content: `${loaderData.name} — Cambodia Everywhere` },
+          { property: "og:title", content: `${loaderData.name} — KramiVelle` },
           { property: "og:description", content: loaderData.short_description },
         ]
-      : [{ title: "Unavailable — Cambodia Everywhere" }, { name: "robots", content: "noindex" }],
+      : [{ title: "Unavailable — KramiVelle" }, { name: "robots", content: "noindex" }],
   }),
   component: ProductPage,
 });

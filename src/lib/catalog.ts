@@ -53,4 +53,4 @@ export const COUNTRIES = [
 
 export const ORDER_STATUSES = ["new", "contacted", "quoted", "confirmed", "closed"] as const;
 
-export const PLACEHOLDER_EMAIL = "hello@cambodia-everywhere.example";
+export const PLACEHOLDER_EMAIL = "hello@kramivelle.example";

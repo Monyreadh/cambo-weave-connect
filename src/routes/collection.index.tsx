@@ -8,9 +8,9 @@ import { CATEGORY_LABELS, type Product } from "@/lib/catalog";
 export const Route = createFileRoute("/collection/")({
   head: () => ({
     meta: [
-      { title: "Collection — Cambodia Everywhere Heritage Textiles" },
+      { title: "Collection — KramiVelle Heritage Textiles" },
       { name: "description", content: "Concept catalogue of Cambodian heritage scarves, table linen and future home accents. Prices by quotation." },
-      { property: "og:title", content: "The Collection — Cambodia Everywhere" },
+      { property: "og:title", content: "The Collection — KramiVelle" },
       { property: "og:description", content: "Pilot scarves and table linen, curated with Cambodian makers." },
     ],
   }),

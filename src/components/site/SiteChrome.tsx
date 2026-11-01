@@ -21,7 +21,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur">
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 py-4 md:px-10">
         <Link to="/" className="flex flex-col leading-none">
-          <span className="font-serif text-2xl tracking-tight text-primary">Cambodia Everywhere</span>
+          <span className="font-serif text-2xl tracking-tight text-primary">KramiVelle</span>
           <span className="mt-1 text-[0.6rem] uppercase tracking-[0.3em] text-muted-foreground">Heritage Textiles · CamTrade</span>
         </Link>
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
@@ -65,11 +65,11 @@ export function SiteFooter() {
       <WeaveBand />
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-4 md:px-10">
         <div className="md:col-span-2">
-          <p className="font-serif text-3xl">Cambodia Everywhere</p>
+          <p className="font-serif text-3xl">KramiVelle</p>
           <p className="mt-2 font-serif text-lg italic text-gold">Crafted in Cambodia. Curated for the World.</p>
           <p className="mt-6 max-w-md text-sm text-primary-foreground/70">
             Curated with Cambodian makers — supplier partnerships being finalised. CamTrade is the proposed B2B
-            wholesale and export channel of Cambodia Everywhere.
+            wholesale and export channel of KramiVelle.
           </p>
         </div>
         <div className="space-y-2 text-sm">

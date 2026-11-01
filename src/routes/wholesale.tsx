@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import { TextPage, meta } from "@/components/site/TextPage";
 
 export const Route = createFileRoute("/wholesale")({
-  head: () => meta("Wholesale with CamTrade — Cambodia Everywhere", "B2B quotations for boutiques, gifting, hospitality and distributors in Switzerland and Europe."),
+  head: () => meta("Wholesale with CamTrade — KramiVelle", "B2B quotations for boutiques, gifting, hospitality and distributors in Switzerland and Europe."),
   component: () => (
     <TextPage eyebrow="CamTrade · B2B" title="Wholesale & export">
-      <p>CamTrade is the proposed wholesale and export channel of Cambodia Everywhere, connecting European buyers with Cambodian textile makers. We work by quotation — every order is tailored.</p>
+      <p>CamTrade is the proposed wholesale and export channel of KramiVelle, connecting European buyers with Cambodian textile makers. We work by quotation — every order is tailored.</p>
       <h2>Who it's for</h2>
       <p>Boutiques and concept stores, gift retailers, corporate gifting programmes, hotels and restaurants, and distributors.</p>
       <h2>The process</h2>

@@ -7,9 +7,9 @@ import { listProducts } from "@/lib/catalog.functions";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Cambodia Everywhere | Heritage Textiles — Crafted in Cambodia" },
+      { title: "KramiVelle | Heritage Textiles — Crafted in Cambodia" },
       { name: "description", content: "A pilot collection of Cambodian heritage scarves and table linen for boutiques, gifting, hospitality and conscious shoppers in Switzerland and Europe." },
-      { property: "og:title", content: "Cambodia Everywhere | Heritage Textiles" },
+      { property: "og:title", content: "KramiVelle | Heritage Textiles" },
       { property: "og:description", content: "Crafted in Cambodia. Curated for the World. Request a non-binding pre-order quotation." },
     ],
   }),
@@ -85,7 +85,7 @@ function Home() {
             <h2 className="mt-4 text-5xl text-primary">Starting small, done carefully.</h2>
           </div>
           <div className="space-y-5 text-muted-foreground">
-            <p>Cambodia Everywhere begins with a focused pilot in Switzerland, testing demand for scarves and table linen before expanding to France, Germany and the wider EU — and later to home décor such as cushions, throws and lanterns.</p>
+            <p>KramiVelle begins with a focused pilot in Switzerland, testing demand for scarves and table linen before expanding to France, Germany and the wider EU — and later to home décor such as cushions, throws and lanterns.</p>
             <p>We are curating with Cambodian makers; supplier partnerships are being finalised. That's why our catalogue is indicative, prices are by quotation, and every request is a non-binding enquiry until a written quote is agreed.</p>
           </div>
         </div>

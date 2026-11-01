@@ -10,9 +10,9 @@ export const Route = createFileRoute("/preorder")({
   validateSearch: z.object({ product: z.string().optional(), sample: z.boolean().optional() }),
   head: () => ({
     meta: [
-      { title: "Pre-order enquiry — Cambodia Everywhere" },
+      { title: "Pre-order enquiry — KramiVelle" },
       { name: "description", content: "Submit a non-binding pre-order or quotation request for Cambodian heritage textiles." },
-      { property: "og:title", content: "Pre-order enquiry — Cambodia Everywhere" },
+      { property: "og:title", content: "Pre-order enquiry — KramiVelle" },
       { property: "og:description", content: "Non-binding enquiry. No payment taken." },
     ],
   }),
@@ -39,13 +39,13 @@ function PreorderPage() {
     const f = new FormData(e.currentTarget);
     const g = (k: string) => String(f.get(k) ?? "").trim();
     const errs: Record<string, string> = {};
-    if (!g("buyer_type")) errs.buyer_type = "Please choose a buyer type.";
-    if (g("full_name").length < 2) errs.full_name = "Please enter your full name.";
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(g("email"))) errs.email = "Please enter a valid email.";
-    if (!g("country")) errs.country = "Please choose a country.";
+    if (!g("buyer_type")) errs["buyer_type"] = "Please choose a buyer type.";
+    if (g("full_name").length < 2) errs["full_name"] = "Please enter your full name.";
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(g("email"))) errs["email"] = "Please enter a valid email.";
+    if (!g("country")) errs["country"] = "Please choose a country.";
     const qty = Number(g("quantity"));
-    if (!Number.isInteger(qty) || qty < 1) errs.quantity = "Quantity must be a whole number of at least 1.";
-    if (!f.get("consent_privacy")) errs.consent_privacy = "Consent is required so we can reply.";
+    if (!Number.isInteger(qty) || qty < 1) errs["quantity"] = "Quantity must be a whole number of at least 1.";
+    if (!f.get("consent_privacy")) errs["consent_privacy"] = "Consent is required so we can reply.";
     setErrors(errs);
     if (Object.keys(errs).length) return;
     setBusy(true);
@@ -97,17 +97,17 @@ function PreorderPage() {
       <form onSubmit={onSubmit} noValidate className="mt-10 grid gap-6 md:grid-cols-2">
         <div className="hidden" aria-hidden><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
         <label className="md:col-span-2 text-sm">I am enquiring as *
-          <select name="buyer_type" defaultValue="" className={field} aria-invalid={!!errors.buyer_type}>
+          <select name="buyer_type" defaultValue="" className={field} aria-invalid={!!errors["buyer_type"]}>
             <option value="" disabled>Select…</option>
             {BUYER_TYPES.map((b) => <option key={b.value} value={b.value}>{b.label}</option>)}
           </select>{err("buyer_type")}
         </label>
-        <label className="text-sm">Full name *<input name="full_name" autoComplete="name" className={field} aria-invalid={!!errors.full_name} maxLength={120} />{err("full_name")}</label>
+        <label className="text-sm">Full name *<input name="full_name" autoComplete="name" className={field} aria-invalid={!!errors["full_name"]} maxLength={120} />{err("full_name")}</label>
         <label className="text-sm">Business / company <span className="text-muted-foreground">(optional)</span><input name="company" autoComplete="organization" className={field} maxLength={160} /></label>
-        <label className="text-sm">Email *<input name="email" type="email" autoComplete="email" className={field} aria-invalid={!!errors.email} maxLength={254} />{err("email")}</label>
+        <label className="text-sm">Email *<input name="email" type="email" autoComplete="email" className={field} aria-invalid={!!errors["email"]} maxLength={254} />{err("email")}</label>
         <label className="text-sm">Phone <span className="text-muted-foreground">(optional)</span><input name="phone" type="tel" autoComplete="tel" className={field} maxLength={40} /></label>
         <label className="text-sm">Country *
-          <select name="country" defaultValue="" className={field} aria-invalid={!!errors.country}>
+          <select name="country" defaultValue="" className={field} aria-invalid={!!errors["country"]}>
             <option value="" disabled>Select…</option>
             {COUNTRIES.map((c) => <option key={c}>{c}</option>)}
           </select>{err("country")}
@@ -126,14 +126,14 @@ function PreorderPage() {
             </select>
           </label>
         )}
-        <label className="text-sm">Quantity *<input name="quantity" type="number" min={1} step={1} defaultValue={search.sample ? 1 : undefined} className={field} aria-invalid={!!errors.quantity} />
+        <label className="text-sm">Quantity *<input name="quantity" type="number" min={1} step={1} defaultValue={search.sample ? 1 : undefined} className={field} aria-invalid={!!errors["quantity"]} />
           <span className="mt-1 block text-xs text-muted-foreground">MOQ guidance: indicatively 18–60 per design. Smaller enquiries welcome.</span>{err("quantity")}</label>
         <label className="text-sm">Target delivery date <span className="text-muted-foreground">(optional)</span><input name="target_date" type="date" className={field} /></label>
         <label className="md:col-span-2 text-sm">Message
           <textarea name="message" rows={5} maxLength={3000} className={field} defaultValue={search.sample ? "I would like to request a sample." : ""} />
         </label>
         <div className="md:col-span-2 space-y-3 text-sm">
-          <label className="flex gap-3"><input type="checkbox" name="consent_privacy" aria-invalid={!!errors.consent_privacy} className="mt-1" />
+          <label className="flex gap-3"><input type="checkbox" name="consent_privacy" aria-invalid={!!errors["consent_privacy"]} className="mt-1" />
             <span>I agree that my details are used to respond to this enquiry, as described in the <Link to="/privacy" className="underline">privacy notice</Link>. *</span></label>
           {err("consent_privacy")}
           <label className="flex gap-3"><input type="checkbox" name="marketing_opt_in" className="mt-1" /><span>Optional: send me occasional news about the collection. Unsubscribe anytime.</span></label>
