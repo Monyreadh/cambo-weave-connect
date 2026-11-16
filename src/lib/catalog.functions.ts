@@ -109,5 +109,16 @@ export const submitPreorder = createServerFn({ method: "POST" })
       }
       return { ok: false as const, error: "We couldn't save your enquiry. Please check your details and try again." };
     }
-    return { ok: true as const, reference, product_name };
+    let notification_sent = false;
+    try {
+      const { sendEnquiryEmail } = await import("./enquiry-email.server");
+      await sendEnquiryEmail({ subject: `KramiVelle pre-order enquiry ${reference}`, replyTo: data.email,
+        fields: { Reference: reference, "Buyer type": data.buyer_type, Name: data.full_name,
+          Company: data.company, Email: data.email, Country: data.country, Phone: data.phone,
+          Product: product_name ?? data.product_slug, "Product slug": data.product_slug,
+          Design: data.preferred_design, Quantity: data.quantity, "Target date": data.target_date,
+          Message: data.message, "Privacy consent": data.consent_privacy, "Marketing opt-in": data.marketing_opt_in } });
+      notification_sent = true;
+    } catch { console.error("Pre-order notification could not be sent", reference); }
+    return { ok: true as const, reference, product_name, notification_sent };
   });

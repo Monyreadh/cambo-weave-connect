@@ -53,4 +53,6 @@ export const COUNTRIES = [
 
 export const ORDER_STATUSES = ["new", "contacted", "quoted", "confirmed", "closed"] as const;
 
-export const PLACEHOLDER_EMAIL = "hello@kramivelle.example";
+export const CONTACT_EMAIL = "bd@kramivelle.com";
+
+export const CONTACT_HREF = `mailto:${CONTACT_EMAIL}`;

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { TextPage, EditFlag, meta } from "@/components/site/TextPage";
-import { PLACEHOLDER_EMAIL } from "@/lib/catalog";
+import { CONTACT_EMAIL, CONTACT_HREF } from "@/lib/catalog";
 
 export const Route = createFileRoute("/privacy")({
   head: () => meta("Privacy notice — KramiVelle", "How we handle the personal data you share in pre-order enquiries."),
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/privacy")({
       <h2>Storage & access</h2>
       <p>Enquiries are stored on our secured hosting provider and accessible only to authorised administrators. We do not sell your data.</p>
       <h2>Your rights</h2>
-      <p>You may request access, correction or deletion, or withdraw marketing consent, by writing to <EditFlag>{PLACEHOLDER_EMAIL}</EditFlag>.</p>
+      <p>You may request access, correction or deletion, or withdraw marketing consent, by writing to <a href={CONTACT_HREF} className="underline">{CONTACT_EMAIL}</a>.</p>
       <h2>Controller</h2>
       <p>Operator details: <EditFlag>legal entity name and address to be added</EditFlag></p>
     </TextPage>

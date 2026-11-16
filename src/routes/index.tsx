@@ -47,6 +47,19 @@ function Home() {
         <WeaveBand />
       </section>
 
+      <section aria-labelledby="event-heading" className="border-b border-border bg-secondary">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-12 md:flex-row md:items-center md:justify-between md:px-10">
+          <div className="max-w-2xl">
+            <p className="eyebrow">Event spotlight</p>
+            <h2 id="event-heading" className="mt-3 text-4xl text-primary">An Evening of Cambodian Culture, Food & Connections</h2>
+            <p className="mt-3 text-muted-foreground">Explore the event details and registration information on Luma.</p>
+          </div>
+          <Button asChild variant="hero" size="xl" className="self-start md:shrink-0">
+            <a href="https://luma.com/sc1kdx4u" target="_blank" rel="noopener noreferrer">View event on Luma <span className="sr-only">(opens in a new tab)</span><span aria-hidden="true">↗</span></a>
+          </Button>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-7xl px-5 py-24 md:px-10">
         <div className="grid gap-px bg-border md:grid-cols-2">
           <div className="bg-background p-10 md:p-14">

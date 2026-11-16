@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PLACEHOLDER_EMAIL } from "@/lib/catalog";
+import { CONTACT_EMAIL, CONTACT_HREF } from "@/lib/catalog";
 
 const NAV = [
   { to: "/collection", label: "Collection" },
@@ -84,7 +84,7 @@ export function SiteFooter() {
           <Link to="/contact" className="block hover:text-gold">Contact</Link>
           <Link to="/privacy" className="block hover:text-gold">Privacy</Link>
           <Link to="/terms" className="block hover:text-gold">Terms</Link>
-          <p className="pt-2 text-primary-foreground/60">{PLACEHOLDER_EMAIL}</p>
+          <a href={CONTACT_HREF} className="block break-words pt-2 text-primary-foreground/80 hover:text-gold">{CONTACT_EMAIL}</a>
         </div>
       </div>
       <div className="border-t border-primary-foreground/15">

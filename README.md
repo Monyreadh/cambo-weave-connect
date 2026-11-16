@@ -46,3 +46,17 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+## Form email notifications (Resend)
+
+Contact form messages and saved pre-order enquiries are emailed to `bd@kramivelle.com`.
+Set these **server-side secrets** in the hosting environment (Lovable), or in `.env.local` for local development:
+
+- `RESEND_API_KEY`: a Resend API key with email sending permission.
+- `RESEND_FROM_EMAIL`: a sender on a domain verified in Resend, for example `KramiVelle <notifications@kramivelle.com>` after verifying that domain.
+
+Never prefix these secrets with `VITE_` or commit their values. Redeploy after configuring them.
+The visitor's email is set as Reply-To. All submitted business fields and consent choices are included as plain text.
+Contact messages show success only after Resend accepts them. Pre-orders remain saved in the admin database if email fails; the confirmation warns the visitor and provides a direct email fallback. There is no automatic retry for failed pre-order notifications; check the admin inbox for saved enquiries.
+
+Verify both forms in the deployed environment with a real submission, confirm delivery to `bd@kramivelle.com`, and test Reply-To before launch. Contact anti-spam uses a honeypot, minimum completion time, and a best-effort per-server-instance email rate limit; use a shared rate limiter or CAPTCHA if abuse increases.

@@ -4,7 +4,7 @@ import { z } from "zod";
 import { useServerFn } from "@tanstack/react-start";
 import { Button } from "@/components/ui/button";
 import { listProducts, submitPreorder } from "@/lib/catalog.functions";
-import { BUYER_TYPES, COUNTRIES } from "@/lib/catalog";
+import { BUYER_TYPES, COUNTRIES, CONTACT_EMAIL, CONTACT_HREF } from "@/lib/catalog";
 
 export const Route = createFileRoute("/preorder")({
   validateSearch: z.object({ product: z.string().optional(), sample: z.boolean().optional() }),
@@ -30,7 +30,7 @@ function PreorderPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [busy, setBusy] = useState(false);
   const [serverError, setServerError] = useState("");
-  const [done, setDone] = useState<null | { reference: string; summary: Record<string, string> }>(null);
+  const [done, setDone] = useState<null | { reference: string; notificationFailed: boolean; summary: Record<string, string> }>(null);
   const [slug, setSlug] = useState(search.product ?? "");
   const selected = products.find((p) => p.slug === slug);
 
@@ -61,7 +61,7 @@ function PreorderPage() {
         },
       });
       if (!res.ok) { setServerError(res.error); return; }
-      setDone({ reference: res.reference, summary: { Product: selected?.name ?? "General enquiry", Design: g("preferred_design") || "—", Quantity: String(qty), Country: g("country"), Email: g("email") } });
+      setDone({ reference: res.reference, notificationFailed: "notification_sent" in res && !res.notification_sent, summary: { Product: selected?.name ?? "General enquiry", Design: g("preferred_design") || "—", Quantity: String(qty), Country: g("country"), Email: g("email") } });
       window.scrollTo({ top: 0 });
     } catch {
       setServerError("Something went wrong while sending. Please try again.");
@@ -76,6 +76,7 @@ function PreorderPage() {
         <p className="eyebrow">Enquiry received</p>
         <h1 className="mt-3 text-5xl text-primary">Thank you.</h1>
         <p className="mt-4 text-muted-foreground">Your request has been submitted. <strong>This is not a confirmed order.</strong> We'll review it and reply by email with next steps or a written quotation.</p>
+        {done.notificationFailed && <p role="alert" className="mt-6 border border-gold p-4 text-sm">Your enquiry is saved, but we could not send the email notification. Please email <a href={CONTACT_HREF} className="underline">{CONTACT_EMAIL}</a> with your reference below. You do not need to submit again.</p>}
         <p className="mt-8 text-sm uppercase tracking-widest">Reference</p>
         <p className="font-serif text-4xl text-accent">{done.reference}</p>
         <dl className="mt-8 divide-y divide-border border-y border-border text-sm">
